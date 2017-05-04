@@ -39,7 +39,7 @@
         <h2>Usage</h2>
 
         <h3>Getting Started</h3>
-        <p>Before using the Vivial Connect python library you will need to create a Vivial Connect account:</p>
+        <p>Before using the Vivial Connect Ruby library you will need to create a Vivial Connect account:</p>
         <ol>
             <li><a href="https://www.vivialconnect.net/register">Register</a> a new account.</li>
             <li>Go to the accounts page, and get your account number, API key and API secret.</li>
@@ -69,15 +69,16 @@ my_number = VivialConnect::Number.buy(phone_number: my_number.phone_number)</cod
         <h3>Send a Message</h3> 
 
 <pre>
-<code>VivialConnect::Message.send(to_number: "+1612XXXXXXX",
+<code>message = VivialConnect::Message.send(to_number: "+1612XXXXXXX",
                             from_number: my_number.phone_number,
                             body: "Hello World!")
+      message_id = message.id
 </code></pre>
 
         <h3>Get Message Status</h3>
 <pre>
-<code>message = VivialConnect::Message.find(message.id)
-print(message.status)
+<code>message = VivialConnect::Message.find(message_id)
+puts(message.status)
 </code></pre>
 
         <p>&nbsp;</p>
