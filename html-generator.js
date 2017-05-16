@@ -19,6 +19,7 @@ function build_html(libraries){
   libraries.forEach(function(element) {
     var text = fs.readFileSync(`${element}/README.md`, 'utf-8');
     var md = converter.makeHtml(text);
+    md = md.replace('<!--', '').replace('-->', '')
     fs.writeFileSync(`${element}/index.html`, md, 'utf-8');
     console.log(`HTML for ${element}/index.html generated successfully.`)
   }); 
