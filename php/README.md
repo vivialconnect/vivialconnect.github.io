@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <title>Vivial Connect PHP Library</title> -->
-    <link rel="stylesheet" href="/css/github-markdown.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="shortcut icon" href="/img/favicon.png'">
-</head>
-<body class="markdown-body">
-    <header style="padding-left: 0px">
-        <img src="/img/logo.png"><br>
-    </header>
-
 # Vivialconnect PHP Library
 
 A simple PHP library for using the [Vivial Connect REST API](https://www.vivialconnect.net/) to send and receiving text messages. For a complete description of all features visit the [full API reference](https://vivialconnect.github.io/vivialconnect-php/).
@@ -178,5 +162,3 @@ Useful Resources
 * [Full PHP Library Documentation](https://vivialconnect.github.io/vivialconnect-php/)
 * [Vivial Connect REST API Documentation](https://www.vivialconnect.net/docs/)
 * [Libraries for other languages](https://vivialconnect.github.io/)
-
-</body>

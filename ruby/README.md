@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <title>Vivial Connect Ruby Library</title> -->
-    <link rel="stylesheet" href="/css/github-markdown.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="shortcut icon" href="/img/favicon.png'">
-</head>
-<body class="markdown-body">
-    <header style="padding-left: 0px">
-        <img src="/img/logo.png"><br>
-    </header>
 
 # Vivialconnect Ruby Library
 
@@ -108,5 +93,3 @@ Useful Resources
 * [Full Ruby Library Documentation](https://vivialconnect.github.io/vivialconnect-ruby/)
 * [Vivial Connect REST API Documentation](https://www.vivialconnect.net/docs/)
 * [Libraries for other languages](https://vivialconnect.github.io/)
-
-</body>

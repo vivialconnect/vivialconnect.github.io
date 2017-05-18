@@ -3,38 +3,42 @@
 // npm install showdown
 // To run the script: node html-generator.js
 
-console.log("Beginning HTML generation script");
-var showdown  = require('showdown');
-var converter = new showdown.Converter();
-var fs = require('fs');
+
+
+console.log("Beginning HTML generation script")
+const template = require('./template')
+const showdown  = require('showdown')
+const converter = new showdown.Converter()
+const fs = require('fs')
 
 
 // To add a new library, simply replicate the existing file structure
 // languagename/README.md
 // and add the name of the library to the array below
 
-libraries = [ 'php', 'python', 'ruby']
+libraries = [ 'PHP', 'Python', 'Ruby']
 
 function build_html(libraries){
   libraries.forEach(function(element) {
-    var text = fs.readFileSync(`${element}/README.md`, 'utf-8');
-    var md = converter.makeHtml(text);
-    md = md.replace('<!--', '').replace('-->', '')
-    fs.writeFileSync(`${element}/index.html`, md, 'utf-8');
+    let text = fs.readFileSync(`${element}/README.md`, 'utf-8')
+    let md = converter.makeHtml(text)
+    md = template.header(element) + md + template.footer()
+    fs.writeFileSync(`${element}/index.html`, md, 'utf-8')
     console.log(`HTML for ${element}/index.html generated successfully.`)
   }); 
 }
 
 function build_main_html(){
-  var text = fs.readFileSync('README.md', 'utf-8');
-  var md = converter.makeHtml(text);
-  fs.writeFileSync(`index.html`, md, 'utf-8');
+  let text = fs.readFileSync('README.md', 'utf-8')
+  let md = converter.makeHtml(text)
+  fs.writeFileSync(`index.html`, md, 'utf-8')
   console.log('HTML for the main index.html generated successfully.')
 }
 
 function execute_script(){
   build_html(libraries)
   build_main_html();
+  console.log("Script finished successfully")
 }
 
 execute_script();
