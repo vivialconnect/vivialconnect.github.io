@@ -135,12 +135,14 @@ sendMessage('Howdy, from Vivial Connect!',
 
 ```
 
-<!-- ### Get Message Status
 
+<!-- ### Get Message Status
 
 ```
 TODO
+
 ``` -->
+
 
 Requirements
 ------------
