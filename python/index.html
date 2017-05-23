@@ -1,98 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vivial Connect Python Library</title>
-    <link rel="stylesheet" href="/css/github-markdown.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="shortcut icon" href="/img/favicon.png'">
-</head>
-<body>
-    <header>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Vivial Connect Python Library</title>
+        <link rel="stylesheet" href="/css/github-markdown.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="shortcut icon" href="/img/favicon.png'">
+      </head>
+ <body class="markdown-body">
+      <header style="padding-left: 0px">
         <img src="/img/logo.png"><br>
-    </header>
-    <article class="markdown-body">
-        <h1>Vivial Connect Python Library</h1>
-        <p>
-            A simple python module for using the <a href="https://www.vivialconnect.net">Vivial Connect REST API</a> to send and receiving text messages. For a complete description of all features visit the <a href="https://vivialconnect.github.io/vivialconnect-python/">full API reference</a>.
+      </header>
+      <h1 id="vivialconnectpythonlibrary">VivialConnect Python Library</h1>
+<p>A simple python module for using the <a href="https://www.vivialconnect.net/">Vivial Connect REST API</a> to send and receiving text messages. For a complete description of all features visit the <a href="https://vivialconnect.github.io/vivialconnect-python/">full API reference</a>.</p>
+<h2 id="installation">Installation</h2>
+<p>You can install vivialconnect via pip with:</p>
+<pre><code>$ pip install vivialconnect
+</code></pre>
+<p>Alternatively, clone the repository and install locally:</p>
+<pre><code>$ git clone https://github.com/VivialConnect/vivialconnect-python
+$ python setup.py install
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h3 id="gettingstarted">Getting Started</h3>
+<p>Before using the Vivial Connect python library you will need to create a Vivial Connect account:</p>
+<ol>
+<li><a href="https://www.vivialconnect.net/register/">Register</a> a new account </li>
+<li>Go to the accounts page, and get your account number, API key and API secret.</li>
+</ol>
+<p>Next, initialize your Python application with this information:</p>
+<pre><code class="python language-python">from vivialconnect import Resource, Message
 
-        <h2>Installation</h2>
-
-        <p>Install vivialconnect via pip:</p>
-
-        <pre><code>$ pip install vivialconnect</code></pre>
-
-        <p>Alternatively, clone the repository and install locally:</p>
-
-<pre>
-<code>$ git clone https://github.com/VivialConnect/vivialconnect-python</code>
-<code>$ python setup.py install</code>
-</pre>
-
-        <p>&nbsp;</p>
-
-        <h2>Usage</h2>
-
-        <h3>Getting Started</h3>
-        <p>Before using the Vivial Connect python library you will need to create a Vivial Connect account:</p>
-        <ol>
-            <li><a href="https://www.vivialconnect.net/register">Register</a> a new account.</li>
-            <li>Go to the accounts page, and get your account number, API key and API secret.</li>
-        </ol>
-        <p>Next, initialize your Python application with this information:</p>
-
-<pre><code>from vivialconnect import Resource, Number, Message
-
-Resource.api_account_id = "YOUR_ACCOUNT_ID"
-Resource.api_secret = "YOUR_API_SECRET"
-Resource.api_key = "YOUR_API_KEY"</code></pre>
-
-        <h3>Purchase a Number</h3>
-        <p>When purchasing a number, you must first find available numbers:</p>
-
-<pre><code>available_numbers = Number.available(country_code='US',
+Resource.api_key = "my-api-key"
+Resource.api_secret = "my-api-secret"
+Resource.api_account_id = "123456"
+</code></pre>
+<h3 id="purchaseanumber">Purchase a Number</h3>
+<p>When purchasing a number, you must first find available numbers:</p>
+<pre><code class="python language-python">available_numbers = Number.available(country_code='US',
                                       area_code='646',
-                                      limit=5)</code></pre>
-        <p>Then buy one:</p>
-<pre><code>if available_numbers:
+                                      limit=5)
+</code></pre>
+<p>Then buy one:</p>
+<pre><code class="python language-python">if available_numbers:
     my_number = available_numbers[0]
     my_number.name = "A Friendly Name"
-    my_number.buy()</code></pre>
-
-        <h3>Send a Message</h3> 
-<pre><code>message = Message()
+    my_number.buy()
+</code></pre>
+<h3 id="sendamessage">Send a Message</h3>
+<pre><code class="python language-python">message = Message()
 message.from_number = my_number.phone_number
 message.to_number = "+12125551212"
 message.body = "Hello Friend!"
-message.send()</code></pre>
-
-        <h3>Get Message Status</h3>
-<pre><code>message = Message.find(message.id)
-print(message.id, message.status)</code></pre>
-
-        <p>&nbsp;</p>
-
-
-        <h2>Requirements</h2>
-        <ul>
-            <li>Python 2.7 or above</li>
-            <li>An active <a href="https://www.vivialconnect.net/register">Vivial Connect</a> account</a></li>
-        </ul>
-
-        <h2>Limitations</h2>
-        <ul>
-            <li>Currently, the Vivial Connect Ruby Library doesn’t support asynchronous requests.</li>
-        </ul>
-
-
-        <h2>Useful Resources</h2>
-        <ul>
-            <li><a href="https://vivialconnect.github.io/vivialconnect-python/">Full Python Library Documentation</a></li>
-            <li><a href="https://www.vivialconnect.net/docs">Vivial Connect REST API Documentation</a></li>
-            <li><a href="https://vivialconnect.github.io/">Libraries for other languages</a></li>
-        </ul>
-    </article>
-</body>
-</html>
+message.send()
+</code></pre>
+<h3 id="getmessagestatus">Get Message Status</h3>
+<pre><code class="python language-python">message = Message.find(message.id)
+print(message.id, message.status)
+</code></pre>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Python 2.7 or above</li>
+<li>An active <a href="https://www.vivialconnect.net/register/">Vivial Connect</a> account </li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<p>Currently, the Vivial Connect Ruby Library doesn’t support asynchronous requests.</p>
+<h2 id="usefulresources">Useful Resources</h2>
+<ul>
+<li><a href="https://vivialconnect.github.io/vivialconnect-python/">Full Python Library Documentation</a></li>
+<li><a href="https://www.vivialconnect.net/docs/">Vivial Connect REST API Documentation</a></li>
+<li><a href="https://vivialconnect.github.io/">Libraries for other languages</a></li>
+</ul>
+    </body>
+  </html>

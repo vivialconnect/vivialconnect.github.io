@@ -68,4 +68,7 @@ target/
 .active-cfn-stack*
 *.pem
 
+# Node
+
+/node_modules
 

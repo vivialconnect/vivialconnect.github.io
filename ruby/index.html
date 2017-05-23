@@ -1,107 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vivial Connect Ruby Library</title>
-    <link rel="stylesheet" href="/css/github-markdown.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="shortcut icon" href="/img/favicon.png'">
-</head>
-<body>
-    <header>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Vivial Connect Ruby Library</title>
+        <link rel="stylesheet" href="/css/github-markdown.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="shortcut icon" href="/img/favicon.png'">
+      </head>
+ <body class="markdown-body">
+      <header style="padding-left: 0px">
         <img src="/img/logo.png"><br>
-    </header>
-    <article class="markdown-body">
-        <h1>Vivial Connect Ruby Library</h1>
-        <p>
-            A simple ruby gem for using the <a href="https://www.vivialconnect.net">Vivial Connect REST API</a> to send and receiving text messages. For a complete description of all features visit the <a href="https://vivialconnect.github.io/vivialconnect-ruby/">full API reference</a>.
-
-        <h2>Installation</h2>
-
-        <p>Add this line to you Gemfile:</p>
-
-        <pre><code>gem 'vivialconnect'</code></pre>
-
-        <p>Then execute:</p>
-
-        <pre><code>$ bundle</code></pre>
-
-        <p>Alternatively, install the gem locally:</p>
-
-<pre>
-<code>$ gem install vivialconnect</code>
-</pre>
-
-        <p>&nbsp;</p>
-
-        <h2>Usage</h2>
-
-        <h3>Getting Started</h3>
-        <p>Before using the Vivial Connect Ruby library you will need to create a Vivial Connect account:</p>
-        <ol>
-            <li><a href="https://www.vivialconnect.net/register">Register</a> a new account.</li>
-            <li>Go to the accounts page, and get your account number, API key and API secret.</li>
-        </ol>
-        <p>Next, initialize your Ruby application with this information:</p>
-
-<pre>
-<code>require 'vivialconnect'
+      </header>
+      <h1 id="vivialconnectrubylibrary">Vivialconnect Ruby Library</h1>
+<p>A simple ruby gem for using the <a href="https://www.vivialconnect.net/">Vivial Connect REST API</a> to send and receiving text messages. For a complete description of all features visit the <a href="https://vivialconnect.github.io/vivialconnect-ruby/">full API reference</a>.</p>
+<h2 id="installation">Installation</h2>
+<p>Add this line to your application's Gemfile:</p>
+<pre><code class="ruby language-ruby">gem 'vivialconnect'
+</code></pre>
+<p>Then execute:</p>
+<pre><code>$ bundle 
+</code></pre>
+<p>Alternatively, install the gem locally:</p>
+<pre><code>$ gem install vivialconnect
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h3 id="gettingstarted">Getting Started</h3>
+<p>Before using the Vivial Connect Ruby library you will need to create a Vivial Connect account:</p>
+<ol>
+<li><a href="https://www.vivialconnect.net/register/">Register</a> a new account </li>
+<li>Go to the accounts page, and get your account number, API key and API secret.</li>
+</ol>
+<p>Next, initialize your Ruby application with this information:</p>
+<pre><code class="ruby language-ruby">require 'vivialconnect'
 
 VivialConnect::Client.configure(API_KEY, API_SECRET, ACCOUNT_ID)
 </code></pre>
-
-        <h3>Purchase a Number</h3>
-        <p>When purchasing a number, you must first find available numbers:</p>
-
-<pre>
-<code>available_numbers = VivialConnect::Number.available_numbers(area_code: "646",
+<h3 id="purchaseanumber">Purchase a Number</h3>
+<p>When purchasing a number, you must first find available numbers:</p>
+<pre><code class="ruby language-ruby">available_numbers = VivialConnect::Number.available_numbers(area_code: "646",
                                                             limit: 5)
 </code></pre>
-
-        <p>Then buy one:</p>
-
-<pre><code>
-my_number = available_numbers.first
-my_number = VivialConnect::Number.buy(phone_number: my_number.phone_number)</code></pre>
-
-        <h3>Send a Message</h3> 
-
-<pre>
-<code>message = VivialConnect::Message.send(to_number: "+1612XXXXXXX",
+<p>Then buy one:</p>
+<pre><code class="ruby language-ruby">my_number = available_numbers.first
+my_number = VivialConnect::Number.buy(phone_number: my_number.phone_number)
+</code></pre>
+<h3 id="sendamessage">Send a Message</h3>
+<pre><code class="ruby language-ruby">message = VivialConnect::Message.send(to_number: "+1612XXXXXXX",
                             from_number: my_number.phone_number,
                             body: "Hello World!")
-      message_id = message.id
-</code></pre>
 
-        <h3>Get Message Status</h3>
-<pre>
-<code>message = VivialConnect::Message.find(message_id)
+message_id = message.id
+</code></pre>
+<h3 id="getmessagestatus">Get Message Status</h3>
+<pre><code class="ruby language-ruby">message = VivialConnect::Message.find(message_id)
 puts(message.status)
 </code></pre>
-
-        <p>&nbsp;</p>
-
-
-        <h2>Requirements</h2>
-        <ul>
-            <li>Ruby 2.0 or above</li>
-            <li>An active <a href="https://www.vivialconnect.net/register">Vivial Connect</a> account</a></li>
-        </ul>
-
-        <h2>Limitations</h2>
-        <ul>
-            <li>Currently, the Vivial Connect Ruby Library doesn’t support asynchronous requests.</li>
-        </ul>
-
-
-        <h2>Useful Resources</h2>
-        <ul>
-            <li><a href="https://vivialconnect.github.io/vivialconnect-ruby/">Full Ruby Library Documentation</a></li>
-            <li><a href="https://www.vivialconnect.net/docs">Vivial Connect REST API Documentation</a></li>
-            <li><a href="https://vivialconnect.github.io/">Libraries for other languages</a></li>
-        </ul>
-    </article>
-</body>
-</html>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Ruby 2.0 or above</li>
+<li>An active <a href="https://www.vivialconnect.net/register/">Vivial Connect</a> account </li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<p>Currently, the Vivial Connect Ruby Library doesn’t support asynchronous requests.</p>
+<h2 id="usefulresources">Useful Resources</h2>
+<ul>
+<li><a href="https://vivialconnect.github.io/vivialconnect-ruby/">Full Ruby Library Documentation</a></li>
+<li><a href="https://www.vivialconnect.net/docs/">Vivial Connect REST API Documentation</a></li>
+<li><a href="https://vivialconnect.github.io/">Libraries for other languages</a></li>
+</ul>
+    </body>
+  </html>
