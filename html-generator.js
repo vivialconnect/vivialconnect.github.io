@@ -22,7 +22,7 @@ function build_html(libraries){
   libraries.forEach(function(element) {
     let text = fs.readFileSync(`${element}/README.md`, 'utf-8')
     let md = converter.makeHtml(text)
-    md = template.header(element) + md + template.footer()
+    md = template.header(element + ' Library') + md + template.footer()
     fs.writeFileSync(`${element}/index.html`, md, 'utf-8')
     console.log(`HTML for ${element}/index.html generated successfully.`)
   }); 
@@ -31,6 +31,7 @@ function build_html(libraries){
 function build_main_html(){
   let text = fs.readFileSync('README.md', 'utf-8')
   let md = converter.makeHtml(text)
+  md = template.header('Client Libraries') + md + template.footer()
   fs.writeFileSync(`index.html`, md, 'utf-8')
   console.log('HTML for the main index.html generated successfully.')
 }

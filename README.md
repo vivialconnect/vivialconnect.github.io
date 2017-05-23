@@ -9,6 +9,6 @@ Libs & Examples
 ---------------
 
 * [Vivial Connect Code Samples](https://github.com/vivialconnect/vivialconnect-sample-code)
-* [Python Client Library](https://github.com/vivialconnect/vivialconnect-python)
-* [PHP Client Library](https://github.com/vivialconnect/vivialconnect-php)
-* [Ruby Client Library](https://github.com/vivialconnect/vivialconnect-ruby)
+* [Python Client Library](https://vivialconnect.github.io/python)
+* [PHP Client Library](https://vivialconnect.github.io/php)
+* [Ruby Client Library](https://vivialconnect.github.io/ruby)
