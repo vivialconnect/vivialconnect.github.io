@@ -83,7 +83,7 @@ Requirements
 Limitations
 -----------
 
-Currently, the Vivial Connect Ruby Library doesn’t support asynchronous requests.
+Currently, the Vivial Connect Python Library doesn’t support asynchronous requests.
 
 Useful Resources
 ----------------
