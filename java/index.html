@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Vivial Connect Java Library</title>
+        <link rel="stylesheet" href="/css/github-markdown.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="shortcut icon" href="/img/favicon.png'">
+      </head>
+      <body class="markdown-body">
+        <header style="padding-left: 0px">
+          <img src="/img/logo.png"><br>
+        </header>
+        <h1 id="vivialconnectjavalibrary">Vivialconnect Java Library</h1>
+        <p>A simple Java library for using the <a href="https://www.vivialconnect.net/">Vivial Connect REST API</a> to send and receiving text messages. </p>
+        <h2 id="installation">Installation</h2>
+        <h3>Maven Installation</h3>
+        <p>Include the following dependency into your pom.xml:</p>
+        <pre><code class="xml language-xml">
+          <dependency>
+            <groupId>vivialconnect</groupId>
+            <artifactId>vivialconnect-java</artifactId>
+            <version>0.1.0</version>
+          </dependency>
+        </code></pre>
+        <h3>Manual Installation</h3>
+        <p>You can clone the VivialConnect Java client repository into your project:</p>
+        <pre><code>git clone https://github.com/VivialConnect/vivialconnect-java</code></pre>
+        <h2 id="usage">Usage</h2>
+        <h3>Initialize Client</h3>
+        <p>Needed before attempting to use any resource.</p>
+        <pre><code class="java language-java">
+          VivialConnectClient.init(123456, my-api-key, my-api-secret);
+        </code></pre>
+        <h3>Search for and buying a number</h3>
+        <pre><code class="java language-java">
+          List<AvailableNumber> availableNumbers = Number.findAvailableNumbersByAreaCode("302");
+          AvailableNumber availableNumber = availableNumbers.get(0);
+          AssociatedNumber associatedNumber = availableNumber.buy();
+        </code></pre>
+        <h3>Send a text message</h3>
+        <pre><code class="java language-java">
+          Message message = new Message();
+          message.setFromNumber("+19132597591");
+          message.setToNumber("+11234567890");
+          message.setBody("Hello, from Vivial Connect!");
+          message.send(); 
+        </code></pre>
+        <h3>Retrieve a list of all messages sent</h3>
+        <pre><code class="java language-java">
+          Message.getMessages();
+        </code></pre>
+        <h3>Get a specific message by ID</h3>
+        <pre><code class="java language-java">
+          Message message = Message.getMessageById(86962);
+        </code></pre>
+        <h3>Retrieve a list messages sent with a limit of 5</h3>
+        <pre><code class="java language-java">
+          Map<String, String> queryParams = new HashMap<String, String>();
+          queryParams.put("limit", "5");
+          List<Message> messages = Message.getMessages(queryParams);
+        </code></pre>
+        <h3>Retrieve a list of available numbers with a limit of 2</h3>
+        <pre><code class="java language-java">
+          Map<String, String> queryParams = new HashMap<String, String>();
+          queryParams.put("limit", "2");
+          List<AvailableNumber> availableNumbers = Number.findAvailableNumbersByAreaCode("302", queryParams);
+        </code></pre>
+        <h2 id="requirements">Requirements</h2>
+        <ul>
+        <li>An active <a href="https://www.vivialconnect.net/register/">Vivial Connect</a> account </li>
+        <li><a href="hhttp://www.oracle.com/technetwork/java/javase/downloads/index.html/">JDK 6 or latest</a></li>
+        </ul>
+        <h2 id="limitations">Limitations</h2>
+        <p>Currently, the Vivial Connect Java Library doesn’t support asynchronous requests.</p>
+        <h2 id="usefulresources">Useful Resources</h2>
+        <ul>
+        <li><a href="https://www.vivialconnect.net/docs/">Vivial Connect REST API Documentation</a></li>
+        <li><a href="https://vivialconnect.github.io/">Libraries for other languages</a></li>
+        </ul>
+      </body>
+    </html>
+
+
+
+
+
+
+
