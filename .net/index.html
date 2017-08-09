@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Vivial Connect .NET Library</title>
+        <link rel="stylesheet" href="/css/github-markdown.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="shortcut icon" href="/img/favicon.png'">
+      </head>
+      <body class="markdown-body">
+        <header style="padding-left: 0px">
+          <img src="/img/logo.png"><br>
+        </header>
+        <h1 id="vivialconnectnetlibrary">Vivialconnect .NET Library</h1>
+        <p>A simple .NET library for using the <a href="https://www.vivialconnect.net/">Vivial Connect REST API</a> to send and receiving text messages. </p>
+        <h2 id="installation">Installation</h2>
+        <p>You can add the VivialConnect library to your .NET project through the NuGet package manager. From within the Visual Studio IDE, use the NuGet GUI to search for and install the VivialConnect package.</p>
+        <h2 id="usage">Usage</h2>
+        <h3>Initialize Client</h3>
+        <p>This only needs to be done once but is needed before attempting to use any resource.</p>
+        <pre><code class="csharp language-csharp">
+          using VivialConnect;
+
+          class Program
+          {
+             static void Main(string[] args)
+             {
+                 VcClient.Init(12345, "my-api-key", "my-api-secret");
+          ...
+        </code></pre>
+        <h3>Updates your Account company name</h3>
+        <pre><code class="csharp language-csharp">
+          using VivialConnect;
+          using VivialConnect.Resources.Account;
+
+          class Program
+          {
+             static void Main(string[] args)
+             {
+                 VcClient.Init(12345, "my-api-key", "my-api-secret");
+                 
+                 Account account = Account.FindSingle();
+                 account.CompanyName = "My Updated Company Name";
+                 account.Save();
+             }
+          }
+        </code></pre>
+        <h3>Search for and buy a number</h3>
+        <pre><code class="csharp language-csharp">
+          using VivialConnect;
+          using VivialConnect.Resources.Number;
+
+          class Program
+          {
+             static void Main(string[] args)
+             {
+                 VcClient.Init(12345, "my-api-key", "my-api-secret");
+                 
+                 List<NumberAvailable> numbersAvailable = Number.FindAvailable(inRegion: RegionEnum.CA);
+                 Number number = numbersAvailable[0].Buy();
+             }
+          }
+        </code></pre>
+        <h3>Send text message</h3>
+        <pre><code class="csharp language-csharp">
+          using VivialConnect;
+          using VivialConnect.Resources.Message;
+
+          class Program
+          {
+             static void Main(string[] args)
+             {
+                 VcClient.Init(12345, "my-api-key", "my-api-secret");
+                 
+                 Message message = Message.Send("+13105551111", "+15309992222", body: "Hello, from Vivial Connect!");
+             }
+          }
+        </code></pre>
+        <h3>Create a Connector</h3>
+        <pre><code class="csharp language-csharp">
+          using VivialConnect;
+          using VivialConnect.Resources.Connector;
+
+          class Program
+          {
+             static void Main(string[] args)
+             {
+                 VcClient.Init(12345, "my-api-key", "my-api-secret");
+                 
+                 Connector connector = new Connector();
+                 connector.Name = "My New Connector";
+                 connector.Callbacks.Add(new CallbackIncoming() { MessageType = MessageTypeEnum.Text, Url = "path/to/sms/callback1", Method = "POST" });
+                 connector.Numbers.Add(new ConnectorNumber("+15309992222"));
+                 connector.Save();
+             }
+          }
+        </code></pre>
+        <h2 id="requirements">Requirements</h2>
+        <ul>
+        <li>An active <a href="https://www.vivialconnect.net/register/">Vivial Connect</a> account </li>
+        </ul>
+        <h2 id="limitations">Limitations</h2>
+        <p>Currently, the Vivial Connect .NET Library doesn’t support asynchronous requests.</p>
+        <h2 id="usefulresources">Useful Resources</h2>
+        <ul>
+        <li><a href="https://www.vivialconnect.net/docs/">Vivial Connect REST API Documentation</a></li>
+        <li><a href="https://vivialconnect.github.io/">Libraries for other languages</a></li>
+        </ul>
+      </body>
+    </html>
+
+
+
