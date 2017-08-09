@@ -13,4 +13,4 @@ Libs & Examples
 * [PHP Client Library](https://vivialconnect.github.io/php)
 * [Ruby Client Library](https://vivialconnect.github.io/ruby)
 * [Java Client Library](https://vivialconnect.github.io/java)
-* [.NET Client Library](https://vivialconnect.github.io/.net)
+* [.NET Client Library](https://vivialconnect.github.io/net)
