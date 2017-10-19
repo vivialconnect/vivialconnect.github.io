@@ -10,7 +10,7 @@ Installation
 Include the following dependency into your pom.xml:
 ```xml
 <dependency>
-  <groupId>vivialconnect</groupId>
+  <groupId>net.vivialconnect</groupId>
   <artifactId>vivialconnect-java</artifactId>
   <version>0.1.0</version>
 </dependency>
