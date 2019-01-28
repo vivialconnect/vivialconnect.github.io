@@ -62,15 +62,16 @@ Message.getMessages();
 Message message = Message.getMessageById(86962);
 ```
 
-### Retrieve a list messages sent with a limit of 5
+### Retrieve a list of the 5 most recent messages
 
 ```java
 Map<String, String> queryParams = new HashMap<String, String>();
+queryParams.put("order", "sent desc");
 queryParams.put("limit", "5");
 List<Message> messages = Message.getMessages(queryParams);
 ```
 
-### Retrieve a list of available numbers with a limit of 2
+### Retrieve a 2 available numbers from US area code 302
 
 ```java
 Map<String, String> queryParams = new HashMap<String, String>();
