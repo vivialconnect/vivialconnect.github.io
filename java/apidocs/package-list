@@ -1,0 +1,13 @@
+net.vivialconnect.bootstrap
+net.vivialconnect.client
+net.vivialconnect.http
+net.vivialconnect.model
+net.vivialconnect.model.account
+net.vivialconnect.model.connector
+net.vivialconnect.model.error
+net.vivialconnect.model.format
+net.vivialconnect.model.log
+net.vivialconnect.model.message
+net.vivialconnect.model.number
+net.vivialconnect.model.user
+net.vivialconnect.util
