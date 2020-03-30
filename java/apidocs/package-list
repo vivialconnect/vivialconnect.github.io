@@ -1,9 +1,9 @@
-net.vivialconnect.bootstrap
 net.vivialconnect.client
 net.vivialconnect.http
 net.vivialconnect.model
 net.vivialconnect.model.account
 net.vivialconnect.model.connector
+net.vivialconnect.model.enums
 net.vivialconnect.model.error
 net.vivialconnect.model.format
 net.vivialconnect.model.log
