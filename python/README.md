@@ -2,10 +2,7 @@
 
 A simple python module for using the [Vivial Connect REST API](https://www.vivialconnect.net/) to send and receiving text messages. For a complete description of all features visit the [full API reference](https://vivialconnect.github.io/vivialconnect-python/).
 
-
-
-Installation
-------------
+## Installation
 
 You can install vivialconnect via pip with:
 
@@ -16,15 +13,13 @@ Alternatively, clone the repository and install locally:
     $ git clone https://github.com/VivialConnect/vivialconnect-python
     $ python setup.py install
 
+## Usage
 
-
-Usage
---------
-### Getting Started 
+### Getting Started
 
 Before using the Vivial Connect python library you will need to create a Vivial Connect account:
 
-1. [Register](https://www.vivialconnect.net/register/) a new account 
+1. [Register](https://www.vivialconnect.net/register/) a new account
 2. Go to the accounts page, and get your account number, API key and API secret.
 
 Next, initialize your Python application with this information:
@@ -73,21 +68,17 @@ message = Message.find(message.id)
 print(message.id, message.status)
 ```
 
+## Requirements
 
-Requirements
-------------
+-   Python 2.7 or above
+-   An active [Vivial Connect](https://www.vivialconnect.net/register/) account
 
-* Python 2.7 or above
-* An active [Vivial Connect](https://www.vivialconnect.net/register/) account 
-
-Limitations
------------
+## Limitations
 
 Currently, the Vivial Connect Python Library doesn’t support asynchronous requests.
 
-Useful Resources
-----------------
+## Useful Resources
 
-* [Full Python Library Documentation](https://vivialconnect.github.io/vivialconnect-python/)
-* [Vivial Connect REST API Documentation](https://www.vivialconnect.net/docs/)
-* [Libraries for other languages](https://vivialconnect.github.io/)
+-   [Full Python Library Documentation](https://vivialconnect.github.io/vivialconnect-python/)
+-   [Vivial Connect REST API Documentation](https://docs.vivialconnect.net)
+-   [Libraries for other languages](https://vivialconnect.github.io)
