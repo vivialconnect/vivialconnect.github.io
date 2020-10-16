@@ -2,12 +2,12 @@
 
 A simple Java library for using the [Vivial Connect REST API](https://www.vivialconnect.net/) to send and receiving text messages.
 
-Installation
-------------
+## Installation
 
 ### Maven Installation
 
 Include the following dependency into your pom.xml:
+
 ```xml
 <dependency>
   <groupId>net.vivialconnect</groupId>
@@ -15,15 +15,16 @@ Include the following dependency into your pom.xml:
   <version>0.1.0</version>
 </dependency>
 ```
+
 ### Manual Installation
 
 You can clone the VivialConnect Java client repository into your project:
+
 ```
 git clone https://github.com/VivialConnect/vivialconnect-java
 ```
 
-Usage
------
+## Usage
 
 ### Initialize Client
 
@@ -48,8 +49,9 @@ Message message = new Message();
 message.setFromNumber("+19132597591");
 message.setToNumber("+11234567890");
 message.setBody("Hello, from Vivial Connect!");
-message.send(); 
+message.send();
 ```
+
 ### Retrieve a list of all messages sent
 
 ```java
@@ -79,21 +81,16 @@ queryParams.put("limit", "2");
 List<AvailableNumber> availableNumbers = Number.findAvailableNumbersByAreaCode("302", queryParams);
 ```
 
-Requirements
-------------
+## Requirements
 
-* An active [Vivial Connect](https://www.vivialconnect.net/register/) account 
-* [JDK 6 or latest](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+-   An active [Vivial Connect](https://www.vivialconnect.net/register/) account
+-   [JDK 6 or latest](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-
-Limitations
------------
+## Limitations
 
 Currently, the Vivial Connect Java Library doesn’t support asynchronous requests.
 
-Useful Resources
-----------------
+## Useful Resources
 
-* [Vivial Connect REST API Documentation](https://www.vivialconnect.net/docs/)
-* [Libraries for other languages](https://vivialconnect.github.io/)
-
+-   [Vivial Connect REST API Documentation](https://docs.vivialconnect.net)
+-   [Libraries for other languages](https://vivialconnect.github.io)

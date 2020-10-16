@@ -1,18 +1,17 @@
 # VivialConnect .NET Library
 
-A simple .NET library for using the [Vivial Connect REST API](https://www.vivialconnect.net/) to send and receiving text messages. 
+A simple .NET library for using the [Vivial Connect REST API](https://www.vivialconnect.net/) to send and receiving text messages.
 
-Installation
-------------
+## Installation
 
 You can add the VivialConnect library to your .NET project through the NuGet package manager. From within the Visual Studio IDE, use the NuGet GUI to search for and install the VivialConnect package.
 
-Usage
------
+## Usage
 
-### Initialize Client 
+### Initialize Client
 
 This only needs to be done once but is needed before attempting to use any resource.
+
 ```csharp
 using VivialConnect;
 
@@ -35,7 +34,7 @@ class Program
    static void Main(string[] args)
    {
        VcClient.Init(12345, "my-api-key", "my-api-secret");
-       
+
        Account account = Account.FindSingle();
        account.CompanyName = "My Updated Company Name";
        account.Save();
@@ -54,7 +53,7 @@ class Program
    static void Main(string[] args)
    {
        VcClient.Init(12345, "my-api-key", "my-api-secret");
-       
+
        List<NumberAvailable> numbersAvailable = Number.FindAvailable(inRegion: RegionEnum.CA);
        Number number = numbersAvailable[0].Buy();
    }
@@ -72,7 +71,7 @@ class Program
    static void Main(string[] args)
    {
        VcClient.Init(12345, "my-api-key", "my-api-secret");
-       
+
        Message message = Message.Send("+13105551111", "+15309992222", body: "Hello, from Vivial Connect!");
    }
 }
@@ -89,7 +88,7 @@ class Program
    static void Main(string[] args)
    {
        VcClient.Init(12345, "my-api-key", "my-api-secret");
-       
+
        Connector connector = new Connector();
        connector.Name = "My New Connector";
        connector.Callbacks.Add(new CallbackIncoming() { MessageType = MessageTypeEnum.Text, Url = "path/to/sms/callback1", Method = "POST" });
@@ -99,18 +98,15 @@ class Program
 }
 ```
 
-Requirements
-------------
+## Requirements
 
-* An active [Vivial Connect](https://www.vivialconnect.net/register/) account 
+- An active [Vivial Connect](https://www.vivialconnect.net/register/) account
 
-Limitations
------------
+## Limitations
 
 Currently, the Vivial Connect .NET Library doesn’t support asynchronous requests.
 
-Useful Resources
-----------------
+## Useful Resources
 
-* [Vivial Connect REST API Documentation](https://www.vivialconnect.net/docs/)
-* [Libraries for other languages](https://vivialconnect.github.io/)
+- [Vivial Connect REST API Documentation](https://docs.vivialconnect.net)
+- [Libraries for other languages](https://vivialconnect.github.io)
