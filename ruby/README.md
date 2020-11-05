@@ -91,5 +91,5 @@ Useful Resources
 ----------------
 
 * [Full Ruby Library Documentation](https://vivialconnect.github.io/vivialconnect-ruby/)
-* [Vivial Connect REST API Documentation](https://www.vivialconnect.net/docs/)
+* [Vivial Connect REST API Documentation](https://docs.vivialconnect.net)
 * [Libraries for other languages](https://vivialconnect.github.io/)
