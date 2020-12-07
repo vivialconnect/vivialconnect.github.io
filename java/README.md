@@ -12,9 +12,19 @@ Include the following dependency into your pom.xml:
 <dependency>
   <groupId>net.vivialconnect</groupId>
   <artifactId>vivialconnect-java</artifactId>
-  <version>0.1.0</version>
+  <version>[version-number]</version>
 </dependency>
 ```
+
+### Version History
+
+- 0.1.7 _(latest)_
+- 0.1.6
+- 0.1.5
+- 0.1.4
+- 0.1.3
+- 0.1.2
+- 0.1.0
 
 ### Manual Installation
 
