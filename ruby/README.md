@@ -1,10 +1,8 @@
-
 # Vivialconnect Ruby Library
 
 A simple ruby gem for using the [Vivial Connect REST API](https://www.vivialconnect.net/) to send and receiving text messages. For a complete description of all features visit the [full API reference](https://vivialconnect.github.io/vivialconnect-ruby/).
 
-Installation
-------------
+## Installation
 
 Add this line to your application's Gemfile:
 
@@ -14,25 +12,22 @@ gem 'vivialconnect'
 
 Then execute:
 
-    $ bundle 
+    $ bundle
 
 Alternatively, install the gem locally:
 
     $ gem install vivialconnect
 
+## Usage
 
-Usage
------
-
-### Getting Started 
+### Getting Started
 
 Before using the Vivial Connect Ruby library you will need to create a Vivial Connect account:
 
-1. [Register](https://www.vivialconnect.net/register/) a new account 
+1. [Register](https://www.vivialconnect.net/register/) a new account
 2. Go to the accounts page, and get your account number, API key and API secret.
 
 Next, initialize your Ruby application with this information:
-
 
 ```ruby
 require 'vivialconnect'
@@ -56,7 +51,6 @@ my_number = available_numbers.first
 my_number = VivialConnect::Number.buy(phone_number: my_number.phone_number)
 ```
 
-
 ### Send a Message
 
 ```ruby
@@ -69,27 +63,22 @@ message_id = message.id
 
 ### Get Message Status
 
-
 ```ruby
 message = VivialConnect::Message.find(message_id)
 puts(message.status)
 ```
 
+## Requirements
 
-Requirements
-------------
+-   Ruby 2.0 or above
+-   An active [Vivial Connect](https://www.vivialconnect.net/register/) account
 
-* Ruby 2.0 or above
-* An active [Vivial Connect](https://www.vivialconnect.net/register/) account 
-
-Limitations
------------
+## Limitations
 
 Currently, the Vivial Connect Ruby Library doesn’t support asynchronous requests.
 
-Useful Resources
-----------------
+## Useful Resources
 
-* [Full Ruby Library Documentation](https://vivialconnect.github.io/vivialconnect-ruby/)
-* [Vivial Connect REST API Documentation](https://docs.vivialconnect.net)
-* [Libraries for other languages](https://vivialconnect.github.io/)
+-   [Full Ruby Library Documentation](https://vivialconnect.github.io/vivialconnect-ruby/)
+-   [Vivial Connect REST API Documentation](https://vivialconnect.net/docs)
+-   [Libraries for other languages](https://vivialconnect.github.io/)
