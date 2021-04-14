@@ -150,5 +150,5 @@ Currently, the Vivial Connect PHP Library doesn’t support asynchronous request
 ## Useful Resources
 
 -   [Full PHP Library Documentation](https://vivialconnect.github.io/vivialconnect-php/)
--   [Vivial Connect REST API Documentation](https://docs.vivialconnect.net)
+-   [Vivial Connect REST API Documentation](https://vivialconnect.net/docs)
 -   [Libraries for other languages](https://vivialconnect.github.io)

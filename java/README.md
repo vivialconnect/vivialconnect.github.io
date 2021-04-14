@@ -18,13 +18,13 @@ Include the following dependency into your pom.xml:
 
 ### Version History
 
-- 0.1.7 _(latest)_
-- 0.1.6
-- 0.1.5
-- 0.1.4
-- 0.1.3
-- 0.1.2
-- 0.1.0
+-   0.1.7 _(latest)_
+-   0.1.6
+-   0.1.5
+-   0.1.4
+-   0.1.3
+-   0.1.2
+-   0.1.0
 
 ### Manual Installation
 
@@ -102,5 +102,5 @@ Currently, the Vivial Connect Java Library doesn’t support asynchronous reques
 
 ## Useful Resources
 
--   [Vivial Connect REST API Documentation](https://docs.vivialconnect.net)
+-   [Vivial Connect REST API Documentation](https://vivialconnect.net/docs)
 -   [Libraries for other languages](https://vivialconnect.github.io)
