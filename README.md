@@ -3,7 +3,7 @@
 VivialConnect is a simple SMS/MMS API. It's designed specifically for developers seeking a simple, affordable and scalable messaging solution.
 
 Get your API key here: <a href="https://www.vivialconnect.net/register">https://www.vivialconnect.net/register</a> <br/>
-Be sure to read the API documentation: <a href="https://www.vivialconnect.net/docs">https://docs.vivialconnect.net</a>
+Be sure to read the API documentation: <a href="https://www.vivialconnect.net/docs">https://www.vivialconnect.net/docs</a>
 
 ## Libs & Examples
 
